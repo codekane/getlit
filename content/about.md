@@ -5,6 +5,8 @@ draft: false
 language: en
 description: About Us
 featured_image: ../assets/images/lit/Blue_Room.jpeg
+_build:
+  list: never
 ---
 # Why
 That’s the question I kept asking. It was December of 2022, at Get Together, and I had no idea what I Was doing with my life, or why. I kept asking, why? And no-one responded, or heard, or even cared, so I started screaming it.  

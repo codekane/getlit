@@ -5,6 +5,8 @@ draft: false
 language: en
 description: Tailwind Typography @tailwindcss/typography & Prose
 featured_image: ../assets/images/featured/featured-img-placeholder.png
+_build:
+  list: never
 ---
 ## @tailwindcss/typography
 [View on GitHub](https://github.com/tailwindlabs/tailwindcss-typography)!
