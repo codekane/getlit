@@ -13,7 +13,7 @@
         </nav>
         <div class="flex justify-center mt-8 space-x-6">
             {{ if .Site.Params.Social_media.Facebook.Enabled }}
-            <a href="#" class="text-gray-400 hover:text-gray-300">
+            <a href="{{Site.Params.Social_media.Facebook.Url}}" class="text-gray-400 hover:text-gray-300">
                 <span class="sr-only">Facebook</span>
                 <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path fill-rule="evenodd"
@@ -23,7 +23,7 @@
             </a>
             {{ end }}
             {{ if .Site.Params.Social_media.Instagram.Enabled }}
-            <a href="#" class="text-gray-400 hover:text-gray-300">
+            <a href="{{.Site.Params.Social_media.Instagram.Url}}" class="text-gray-400 hover:text-gray-300">
                 <span class="sr-only">Instagram</span>
                 <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path fill-rule="evenodd"
@@ -33,7 +33,7 @@
             </a>
             {{ end }}
             {{ if .Site.Params.Social_media.Twitter.Enabled }}
-            <a href="#" class="text-gray-400 hover:text-gray-300">
+            <a href="{{.Site.Params.Social_media.Twitter.Url}}" class="text-gray-400 hover:text-gray-300">
                 <span class="sr-only">Twitter</span>
                 <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path
@@ -42,7 +42,7 @@
             </a>
             {{ end }}
             {{ if .Site.Params.Social_media.Github.Enabled }}
-            <a href="#" class="text-gray-400 hover:text-gray-300">
+            <a href="{{.Site.Params.Social_media.Github.Url}}" class="text-gray-400 hover:text-gray-300">
                 <span class="sr-only">GitHub</span>
                 <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path fill-rule="evenodd"
@@ -53,11 +53,10 @@
             {{ end }}
         </div>
         <p class="mt-8 text-base text-center text-gray-400">&copy; {{ now.Format "2006" }}
-            {{ .Site.Title }}. All rights
-            reserved.</p>
+            {{ .Site.Title }} by Enlightened Technologies</p>
         <p class="mt-2 text-base text-center text-gray-400">Made with &#x2764;&#xfe0f; by <a
-               href="https://nusserstudios.com" class="hover:underline hover:text-primary-600"><span
-                      class="font-black uppercase">Nusser</span> <span class="font-light uppercase">Studios.</span></a>
+               href="https://ryanhorricks.com" class="hover:underline hover:text-primary-600"><span
+                      class="font-black uppercase">Ryan</span> <span class="font-light uppercase">Horricks.</span></a>
         </p>
     </div>
 </footer>
