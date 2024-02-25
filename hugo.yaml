@@ -1,5 +1,5 @@
-baseURL: ''
-title: TailBliss
+baseURL: 'https://getlit.art'
+title: Lit
 languageCode: en-us
 DefaultContentLanguage: en
 enableEmoji: true
@@ -46,11 +46,11 @@ markup:
       xhtml: false
 
 params:
-  author: Nusser Studios
-  authorimage: ../assets/images/global/author.webp
-  og_image: /images/tailbliss-cover.png
-  moto: "Super Fast, and Flexible"
-  description: "A Hugo theme built with love, using TailwindCSS 3, Alpine.JS, and Hugo Pipes. Images are optimized for use with Hugo Pipes for WebP format."
+  author: Ryan Horricks
+  authorimage: ../assets/images/global/ryan_horricks.jpeg
+  og_image: /images/lit/li-cover.jpeg
+  moto: "Enlightened Electronics"
+  description: "Authentic, Attractive, and Amazing to look at. We exist at the Intersection of Art and Technology, building tech designed to integrate into costumes, artwork, and to power your next party!"
   disable_theme_toggle: false
   disable_stay_uptodate: false
 
@@ -83,13 +83,13 @@ params:
       - identifier: e
       - identifier: f
   p4:
-    heading: "From the blog"
+    heading: "Iterations, Insights, and Ingenuity"
     content:
-      - text: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa libero labore natus atque, ducimus sed."
+      - text: "I invite you to witness our imperfections, so that we may travel together towards Excellence."
   p5:
-    heading: "Stay Up to Date"
+    heading: "Our Products are Presently Under Development"
     content:
-      - text: "Sagittis scelerisque nulla cursus in enim consectetur quam. Dictum urna sed consectetur neque tristique pellentesque."
+      - text: "Join our mailing list, and you'll be the first to find out when we're ready for launch, and get first dibs on a spot in the Beta."
     action: "#"
     label: "Email address"
     placeholder: "Enter your email"
@@ -97,41 +97,29 @@ params:
 
   social_media:
     github:
-      enabled: true
+      enabled: false
       url: 'https://github.com/nusserstudios'
     facebook:
       enabled: true
-      url: 'https://facebook.com/nusserstudios'
+      url: 'https://facebook.com/ryan.horricks'
     instagram:
       enabled: true
-      url: 'https://instagram.com/nusserstudios'
+      url: 'https://instagram.com/jesus_basically'
     twitter:
-      enabled: true
+      enabled: false
       url: '@nusserstudios'
     
 
 menu:
   main:
-    - identifier: prose
-      name: Prose
-      url: /prose/
-      weight: 10
     - identifier: about
       name: About
       url: /about/
-      weight: 20
-    - identifier: categories
-      pre: dropdown
-      name: Categories
-      weight: 30
-    - identifier: dropdown
-      pre: complexdropdown
-      name: Dropdown
-      weight: 40
+      weight: 10
     - identifier: contact
       name: Contact
       url: /contact/
-      weight: 50
+      weight: 20
   categories:
     - identifier: prose
       name: Prose
@@ -165,18 +153,6 @@ menu:
       name: About
       url: /about/
       weight: 10
-    - identifier: blog
-      name: Blog
-      url: /categories/blog/
-      weight: 20
-    - identifier: news
-      name: News
-      url: /categories/news/
-      weight: 30
-    - identifier: prose
-      name: Prose
-      url: /prose/
-      weight: 40
     - identifier: contact
       name: Contact
       url: /contact/
