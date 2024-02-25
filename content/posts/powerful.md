@@ -3,26 +3,30 @@ title: "Powerful"
 date: 2024-02-25T11:10:36+08:00
 draft: false
 language: en
-featured_image: ../assets/images/featured/featured-img-placeholder.png
+featured_image: ../assets/images/circuit/powerful_proto.jpg
 summary: A story of 6 Powerful Iterations. Features Li-Po Batteries, the TP4056 charger, Mosfets, Diodes, Resistors, Capacitors, and a Switch. 
 description: A Powerful Sense of Irony, as I nearly lost this work through a bad Git command... Mostly because GitHub refused to accept my commit unless I did something dangerous.
 author: Ryan Horricks
-authorimage: ../assets/images/circuit/powerful_proto.jpeg
+authorimage: ../assets/images/circuit/powerful_proto.jpg
 categories: Powerful
 tags:
 ---
 # Powerful: The Quest for a Safe, Effective, Lightweight, and Long-Lasting Power Source
 
 ## Iteration 1: Lithium Batteries used to Scare Me
+![First Generation Prototype Circuit](/images/first_iteration_prototype_circuit.jpg "Which wire do I cut first, red or black!")
 I still remember the first iteration. I hadn’t yet discovered JST Connectors, instead relying upon screw terminals to make the necessary connections. Version 1 didn’t actually have a power switch - it would drain the battery down to the 2.9V cutoff voltage. Version 1 had two different USB ports, and if you connected to the one on the ESP8266, while there was a battery connected, you would get the magic smoke. Luckily, I was there to catch it in time, but it’s situations like these that lead to fire, danger, and people calling me insane for wanting to put a lithium battery inside of a hat, sell it, and potentially injure people.
 
 ## Iteration 2: A Little Knowledge is a Dangerous Thing
+![Second Generation Prototype Circuit](/images/second_iteration_prototype_circuit.jpg "Have you tried turning it off and on again?")
 That was Iteration 1. Iteration 2 featured an N-Channel MOSFET wired to a power switch to enable cutting off the power without disconnecting the battery. This is important, because even though these Li-Po batteries have a protection circuit that cuts off power at 2.9V, that’s still low enough to cause damage to the battery. Only one of my batteries was subjected to it repeatedly, and it exhibits the worst voltage drop under load of any of the four that I purchased. That’s partially due to the low voltage condition, but this design had several failings.
 1. It’s important to always maintain a connection to ground when working with integrated circuits. By having the power switch connected to an N-Channel mosfet, the switch was on the ground, and while it was effective, over time it was likely to result in reliability concerns with the attached LED’s. The way that addressable LED’s work, is every single one actually has an IC inside of it, and should any one fail, then the entire rest of the strip is knocked out.
 2. Connecting a USB cable to the programming port while a battery is connected will still lead to the Magic Smoke. This only happened to one device, and it does still work – if you’re quick, you can hit undo, and save it, but I’ve made this mistake on another project with 12V, and while I saved it once, I was not so lucky a second time.
 3. Even with a USB cable connected to the charging port, 100% of the system power is being drawn from the battery. What this means it that if this device is both on, and left on the charger, the charge cycle is never going to finish. This isn’t exactly dangerous, however it’s very bad for the health, and longevity of the battery.
 
+
 ## Iteration 3: Two is Not Always Better than One
+![Third Generation Prototype Circuit](/images/third_iteration_prototype_circuit.jpg "What can I say... I tried.")
 Iteration 3 had me testing an idea. My target market is music festivals, and I had the choice between rechargable lithium batteries, and AA’s. I said, why not both?  
 Well, for starters, my circuit was wrong. I made the switch to a P-Channel Mosfet, in fact adding many. In my naievety, I had yet to learn how a Mosfet actually works. When the gate is switched on (positive voltage for an N-Channel, negative voltage ((or ground)) for a P-Channel), then the connections between Drain and Source are effectively short-circuited. That means current can flow both ways. With the Mosfet turned off, there exists a “parasitic” body diode, which enables current to flow from Drain->Source for a P-Channel Mosfet, and from Source->Drain for an N-Channel Mosfet. Because it’s a diode, there’s a voltage drop that occurs (unlike when the MOSFET is turned on), and it’s not a great diode, so it’s quite a large drop.  
 None of that matters much when you’re using a single Mosfet as a switch, however this iteration made use of a total of (2) different Mosfets, set up to do the following:  
@@ -34,6 +38,7 @@ That didn’t turn out to matter too much, because the biggest problem with this
 It was not comfortable. What’s more, the weight was not aligned, meaning one side felt heavier than the other. I really liked the idea of enabling the use of multiple power sources, however in practice, it turned out to be totally unmanagable.  
 
 ## Iteration 4: Power Path, Excessive Complexity, and the Humble Schottky Diode
+![Fourth Generation Prototype Circuit](/images/fourth_generation_prototype_circuit.jpg "Big, sloppy, and effective")
 
 Up until now, there’s been a pervasive problem. The power is from the battery, and while you can charge the battery, all you could ever do was draw from the battery. This meant that I had been unable to actually keep the lights on. I could charge it up, and do a demo, but when it was done, it was done. The battery voltage was too low to power the system while taking a charge.  
 I looked for solutions. At this stage I was working in EasyEDA, working on schematics, however I was not yet confident in having gotten it right, and thus liable to waste whatever money I spent having the PCB’s manufactured. I’d found what seemed to be a very simple circuit to enable USB Passthrough, however I was suspicious of these so-called “Schottky Diodes”. Their premise is that they feature a low forward voltage drop, however with the trade-off of possessing a greater leakage current, as well as a lower reverse breakdown voltage. In my application, it’s that leakage current that concerned me. This turned out to be a non-issue, however I needed to solve these problems on a breadboard, and over several prototypes, with ready access to a multimeter to confirm my readings.  
@@ -43,6 +48,9 @@ Skipping the schematics, I built it out on a protoboard, and despite misteps I w
 This is the stage where things started to get very good. This circuit is solid.
 
 ## Iteration 5: Boosting to 12V, Noise, Capacitors, and a Better Way
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/LyBV-9yD8q4?si=l8c0pSLr275WNTLo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 This was an experiment. I had created a double-sided “halo” of 12V RGB LED’s that I found next to a dumpster. The controller was trash, however the lights still worked, and I was able to make a controller out of an Arduino. This was simple, basic, and very noisy. For controls I had 3 potentiometers, one each for Red, Green, and Blue, and at max draw it would surpass the capabilities of the 2.1A output of a 5V power bank.  
 That worked, but this is a new era, and I wanted to see what it was like using a more advanced microcontroller. Now, I’d previously attempted to use a boost converter to get a constant 5V from a Lithium battery, and found that the ESP8266 was unable to boot. Cheap boost converters are noisy, and while the humble Arduino is simple enough to run despite it, the same was not true of the ESP8266. Ultimately, I decided that it didn’t matter: boosting is a lossy process, and I value runtime. I also value beauty, which is why all of my products have made use of the SK6812 series of addressable LED’s. I’ve tested these between 3.3 and 5V, and found their performance to be quite satisfactory. The same is purportedly not true for the WS2812, or APA102 series of LED’s, which exhibiit a very noticeable degradation of their light quality as the voltage drops.  
 For this iteration, what I did was to power the ESP8266 from the Iteration 4 charging circuit, as well as the addressable light channels. In addition, I configured the noisy boost converter to output a 12V rail. This worked fine, while there was nothing hooked up to it, however once I connected the lights it became highly unstable.  
@@ -50,7 +58,10 @@ I attempted to solve this using capacitors. In an ideal world, I’d have access
 By this point, my products are audio responsive, meaning the lights bounce to the beat. What I found was that the LED on the TP4056 that indicate whether it’s charging, or the charge is complete changed colours in response to the beat. This is likely because the software that enables me to constrain the power consumption of addressable LED’s has no faculty to do the same for a string for analog LED’s. That’s a failure of the software, however it meant that it was completely impossible to reign in the power draw of the 12V LED’s. This didn’t APPEAR to cause problems, and I however the onus here being health & safety, I opted to cease using the analog 12V strip.  
 This version is still in operation, however it’s being used with a newer controller that isn’t capable of handling analog LED’s.  
 
+
+
 ## Iteration 6: Voltage Dividers, Useful Bits, and a Surrogate Relay
+![Sixth Generation Prototype Circuit](/images/sixth_generation_prototype_circuit.jpg "Just about done.")
 At this point, I’m quite happy with the circuit, however it’s all about the details, and there’s a few left to touch.  
 1. Voltage Dividers The ESP series of Microcontrollers contains the faculty to convert an Analog signal into a Digital signal. What this means is that, given the 3.3V operating/reference voltage, should you provide 2.5V to an analog input pin, it will be read as ~3103. This is because the ESP32 has a 12-bit resolution ADC. That’s cool, but my battery can go up to 4.2V, and that’s too much to send to any of the pins directly.
 Luckily, there’s an old trick called a voltage dividor. Ther way that it works is that you take two resistors, in this case of the same value, connecting one to the voltage to be read. On the other side of that resistor, you connect it to the ADC, and you also connect that same point to ground through a resistor of equal value. What this achieves is to effectively “split” the voltage at that middle-point, so that half goes to the microcontroller, and half goes to ground. By using a large resistor, very little current is actually being drawn, and the voltage level is such that, with a small amount of processing, on the part of the firmware, the battery voltage can be read with a reasonably good level of accuracy.  
