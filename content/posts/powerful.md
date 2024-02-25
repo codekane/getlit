@@ -7,7 +7,7 @@ featured_image: ../assets/images/featured/featured-img-placeholder.png
 summary: A story of 6 Powerful Iterations. Features Li-Po Batteries, the TP4056 charger, Mosfets, Diodes, Resistors, Capacitors, and a Switch. 
 description: A Powerful Sense of Irony, as I nearly lost this work through a bad Git command... Mostly because GitHub refused to accept my commit unless I did something dangerous.
 author: Ryan Horricks
-authorimage: ../assets/images/featured/featured-powerful.jpg
+authorimage: ../assets/images/circuit/powerful_proto.jpeg
 categories: Powerful
 tags:
 ---
