@@ -47,8 +47,8 @@ markup:
 
 params:
   author: Ryan Horricks
-  authorimage: /images/global/ryan_horricks.jpeg
-  og_image: /images/lit/lit-cover.jpeg
+  authorimage: /images/ryan_horricks.jpeg
+  og_image: /images/lit-cover.jpeg
   moto: "Enlightened Electronics"
   description: "Authentic, Attractive, and Amazing to look at. We exist at the Intersection of Art and Technology, building tech designed to integrate into costumes, artwork, and to power your next party!"
   disable_theme_toggle: false
