@@ -4,17 +4,13 @@
         <div class="max-w-screen-xl px-4 py-8 mx-auto">
             <div class="grid items-center gap-8 mb-8 sm:mb-0 lg:gap-12 lg:grid-cols-12">
                 <div class="col-span-6 px-4 text-center sm:mb-6 lg:text-left lg:mb-0">
-                    <h1 class="my-8 text-4xl leading-none tracking-tight text-gray-900 md:text-5xl xl:text-6xl dark:text-white" style="font-weight: 500;">
-                        {{ .Site.Title }}
-                    </h1>
-                    <h2 class="pb-2 text-3xl font-light text-gray-800 dark:text-gray-300 md:text-4xl" style="font-size: 0.75rem; font-weight: 700;">
-                        {{ .Site.Params.Moto }}
-                    </h2>
-                    <p class="max-w-xl mx-auto mb-6 font-normal text-gray-900 lg:mx-0 xl:mb-2 md:text-lg xl:text-xl dark:text-gray-50 my-8" style="line-height: 1.5;">
-                        {{ .Site.Params.Subtitle}}
-                    </p>
+                    {{ with .Params.title }}<h1 class="my-8 text-4xl leading-none tracking-tight text-gray-900 md:text-5xl xl:text-6xl dark:text-white" style="font-weight: 500; letter-spacing: 0.25rem;">{{ . }}</h1>{{ end }}
+                    {{ with .Params.subtitle }}<h2 class="pb-2 text-3xl font-light text-gray-800 dark:text-gray-300 md:text-4xl" style="font-size: 0.75rem; font-weight: 700;">{{ . }}</h2>{{ end }}
+                    {{ with .Site.Params.Subtitle }}<p class="max-w-xl mx-auto font-normal text-gray-900 lg:mx-0 md:text-lg xl:text-xl dark:text-gray-50 my-8" style="line-height: 1.5;">{{ . }}</p>{{ end }}
+                    {{ if .Params.show_action_link }}<a class="action {{ .Params.action_type}} mb-8 text-indigo-700  dark:text-indigo-300" href="{{ .Params.action_link }}" style="text-transform: uppercase; text-decoration: none; font-weight: 700;">{{ .Params.action_label | safeHTML }}</a>{{ end }}
                 </div>
                 <div class="col-span-6">
+
                     {{ $hero := resources.GetMatch "images/lit/Lit_Cathedral.jpeg" }}
 
                     {{ $thumb := ($hero.Fill "400x400 webp q90") }}
