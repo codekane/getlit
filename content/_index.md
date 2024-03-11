@@ -1,6 +1,6 @@
 ---
 title: "Lit"
-subtitle: "by Enlightened Electronics"
+subtitle: "by Enlightened Technologies"
 description: "Lit by Enlightened Technologies, combining artistry, technology, and wizardry to create things that dreams are made out of."
 date: 2023-03-11T07:56:00-06:00
 images:

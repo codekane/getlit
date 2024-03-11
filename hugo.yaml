@@ -113,14 +113,22 @@ params:
 
 menu:
   main:
+    - home: home
+      name: Home
+      url: /
+      weight: 10
     - identifier: about
       name: About
       url: /about/
-      weight: 10
+      weight: 20
+    - identifer: blog
+      name: Blog
+      url: /posts/
+      weight: 30
     - identifier: contact
       name: Contact
       url: /contact/
-      weight: 20
+      weight: 40
   categories:
     - identifier: prose
       name: Prose
