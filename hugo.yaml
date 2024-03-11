@@ -49,8 +49,9 @@ params:
   author: Ryan Horricks
   authorimage: /images/ryan_horricks.jpeg
   og_image: /images/lit-cover.jpeg
-  moto: "Enlightened Electronics"
-  description: "Authentic, Attractive, and Amazing to look at. We exist at the Intersection of Art and Technology, building tech designed to integrate into costumes, artwork, and to power your next party!"
+  moto: "by Enlightened Technologies"
+  description: "Lit by Enlightened Technologies, combining artistry, technology, and wizardry to create things that dreams are made out of."
+  subtitle: "You've lost your friends at a festival, and it's starting to storm. The lights have gone out, nobody's there, and nobody knows what will happen... Except you, because you're Lit. Our mission is to shine a light on the darkness."
   disable_theme_toggle: false
   disable_stay_uptodate: false
 
