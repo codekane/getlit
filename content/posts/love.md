@@ -3,7 +3,7 @@ title: "Love"
 date: 2024-03-10T11:10:36+08:00
 draft: false
 language: en
-featured_image: ../assets/images/circuit/powerful_proto.jpg
+featured_image: ../assets/images/lights/Lit.jpeg
 summary: The Lights - Design Process for the Dual-Sided SK6812 RGBW lights that I designed, and had manufactured last year, and the incredible amount of work that goes into making something Good.
 description: The Design Process is a Costly Endeavour. I had meant to talk about something new, but instead it reminded me of something old, from last year, and I felt like sharing.
 author: Ryan Horricks
